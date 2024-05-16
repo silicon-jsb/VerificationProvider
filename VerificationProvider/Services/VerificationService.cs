@@ -106,12 +106,12 @@ public class VerificationService(ILogger<VerificationService> logger, IServicePr
 			if (existingRequest != null)
 			{
 				existingRequest.Code = code;
-				existingRequest.ExpiryDate = DateTime.Now.AddMinutes(5);
+				existingRequest.ExpiryDate = DateTime.Now.AddMinutes(1);
 				context.Entry(existingRequest).State = EntityState.Modified;
 			}
 			else
 			{
-				context.VerificationRequests.Add(new Data.Entities.VerificationRequestEntity() { Email = verificationRequest.Email });
+				context.VerificationRequests.Add(new Data.Entities.VerificationRequestEntity() { Email = verificationRequest.Email, Code = code });
 			}
 
 			await context.SaveChangesAsync();
