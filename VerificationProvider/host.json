@@ -9,7 +9,7 @@
         "enableLiveMetricsFilters": true
       },
       "logLevel": {
-        "default": "Error"
+        "default": "Information"
       }
     }
 }
